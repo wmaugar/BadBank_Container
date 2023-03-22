@@ -1,7 +1,7 @@
 // dal stands for data abstraction layer, works between node server and database, to separete code and concerns
 const MongoClient   = require('mongodb').MongoClient;
-//const url           = 'mongodb://localhost:27017'
-const url           = 'mongodb://mongo:27017'
+const url           = 'mongodb://localhost:27017'
+//const url           = 'mongodb://mongo:27017'
 let db ;
 
 //connect to mongo

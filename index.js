@@ -2,13 +2,37 @@ var express = require('express');
 var app     = express();
 var cors    = require('cors');
 var dal     = require('./dal.js');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: "Library API",
+            version: '1.0.0'
+        }
+    },
+    apis: ['index.js']
+}
 
-// used to serve static files from public directory
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 app.use(express.static('public'));
 // use cors 
 app.use(cors());
-// route to create new users 
+
+
+/**
+* @swagger 
+* /account/create/:name/:email/:password:
+*    get:
+*       description: route to create new users, with name, email and password.
+*       responses:
+*          200:
+*           description: Success
+*/
+
 app.get('/account/create/:name/:email/:password', function (req, res){
     // else create user
     dal.create(req.params.name,req.params.email,req.params.password).
@@ -18,6 +42,17 @@ app.get('/account/create/:name/:email/:password', function (req, res){
         });
 });
 // route for show all accounts
+
+/**
+* @swagger 
+* /account/all:
+*    get:
+*       description: route to get account information in database.
+*       responses:
+*          200:
+*           description: Success
+*/
+
 app.get('/account/all', function (req, res){
     dal.all().
         then((docs) =>{
@@ -25,6 +60,16 @@ app.get('/account/all', function (req, res){
             res.send(docs);
     });
 });
+
+/**
+* @swagger 
+* /find/:email:
+*    get:
+*       description: route to get a user account information, searching in database with its email.
+*       responses:
+*          200:
+*           description: Success
+*/
 
 app.get('/find/:email', function (req, res){
     
@@ -43,6 +88,17 @@ app.get('/findOne/:email', function (req, res){
             res.send(user);
         });
 });
+
+/**
+* @swagger 
+* /update/:email/:amount:
+*    get:
+*       description: route to update the balance, using email address to find user in database
+*       responses:
+*          200:
+*           description: Success
+*/
+
 
 app.get('/update/:email/:amount', function (req, res){
     
