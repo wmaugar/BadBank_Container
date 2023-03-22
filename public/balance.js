@@ -20,8 +20,10 @@ function Balance (){
     }, []);
  
     return (
+        <>
+        <div style={{position: "fixed", top: "0px", right: "10%", color: "white" }}>{ctx.user}</div>
         <Card
-            bgcolor="secondary"
+            bgcolor="danger"
             header="Balance"
             status={status}
             body={
@@ -32,5 +34,6 @@ function Balance (){
                 </>
                 }
         />
+        </>
     )
 }

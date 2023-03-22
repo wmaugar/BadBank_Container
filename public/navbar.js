@@ -1,14 +1,6 @@
 function Navbar(){
-    const { useState } = React;
-    const [show, setShow] = useState(false); 
     const ctx = React.useContext(UserContext);
-    const user = ctx.user;
-
-        function handle(){
-                setShow(!show);
-                console.log(show);
-        }
-            
+    
     return (
         <div>
             <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -22,44 +14,37 @@ function Navbar(){
                         <li  className="nav-item">
                             <a className="nav-link" aria-current="page" href="#/">BadBank</a>
                         </li>
+                        <li className="nav-item" id="create-account-nav" style={{display:"inline"}} >
+                                <a className="nav-link" href="#/createAccount/">Create Account</a>
+                        </li>
 
-                        {show ? <li className="nav-item">
-                            <a className="nav-link" href="#/createAccount/">Create Account</a>
-                        </li> : <></>}
-
-                        <li className="nav-item">
+                        <li className="nav-item" id="login-nav" style={{display:"inline"}}>
                             <a className="nav-link" href="#/login/">Login</a>
                         </li>
 
-                        {show ? <li className="nav-item">
+                        <li className="nav-item" id="deposit-nav" style={{display:"none"}}>
                             <a className="nav-link" href="#/deposit/">Deposit</a>
-                        </li>: <></>}
+                        </li>
 
-                        {show ? <li className="nav-item">
+                        <li className="nav-item" id="withdraw-nav" style={{display:"none"}}> 
                             <a className="nav-link" href="#/withdraw/">Withdraw</a>
-                        </li>: <></>}
+                        </li>
 
-                        {show ? <li className="nav-item">
+                        <li className="nav-item" id="balance-nav" style={{display:"none"}}>
                             <a className="nav-link" href="#/balance/">Balance</a>
-                        </li> : <></>}
+                        </li> 
 
-                        {show ? <li className="nav-item">
+                        <li className="nav-item" id="alldata-nav" style={{display:"none"}}>
                             <a className="nav-link" href="#/alldata/">AllData</a>
-                        </li> : <></>}
+                        </li>
                     </ul>
                 </div>
          
-            </div>
-            
-                     <div className="nav-item" style={{color: "white", padding: "15px"}} > 
-                            {show ? 
-                            <>
-                            <> Logged as: {user} </> <br/> <button onClick={handle}> log out</button> </>
-                                  : 
-                            <button onClick={handle}>Please login</button>} 
-                    </div>    
+                </div>
+                
+                <div id="login-status" style = {{color: "white", padding:"15px"}}>{ctx.user}</div>      
             </nav>
             
-        </div>
-    )
+        </div>)
 };
+    

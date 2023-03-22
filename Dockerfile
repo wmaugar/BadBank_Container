@@ -4,6 +4,7 @@ FROM node:slim
 WORKDIR /app
 # Step 2 - Copy npm dependencies
 COPY package.json /app/package.json
+
 COPY index.js /app/index.js
 COPY dal.js /app/dal.js
 # Step 3 - Install dependencies

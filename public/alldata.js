@@ -11,10 +11,12 @@ function AllData (){
             });
     }, []);
 
-    return (<>
+    return (
+    <div style = {{heigth: "100%", width: '100%', padding: "10%", margin:"auto", backgroundColor: "gray", opacity: "0.8", color: "blue"}}>
         <h5>All Data in store:</h5>
-        {data}        
-    </>);
+        <div> {data} </div>
+              
+    </div>);
 }
 
  

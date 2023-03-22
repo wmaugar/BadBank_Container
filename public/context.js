@@ -12,7 +12,7 @@
         }
          
         return (
-            <div className={classes()} style={{width: '18rem'}}>
+            <div className={classes()} style={{width: '70%', padding: "0% 15% 20% 15%", margin:"auto", display: "flex", textAlign: "center", opacity: 0.8}}>
                 <div className="card-header">{props.header}</div>
                 <div className="card-body">
                     {props.title && (<h5 className="card-title">{props.title}</h5>)}

@@ -2,10 +2,10 @@ function Home (){
     return (
         <Card
             bgcolor  = "primary" 
-            txtcolor = "dark"
-            header   = "BadBank Landing Page"
-            title    = "Welcome to the bank"
-            text     = "You can use this bank"
+            txtcolor = "white"
+            header   = "BadBank Full Stack MERN Final Submission"
+            title    = "Welcome to MIT Bank"
+            text     = "As safe as the Bank of England"
             body     = {<img src="bank.png" className="img-fluid" alt="Responsive image"/>}
         /> 
     );

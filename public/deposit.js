@@ -1,11 +1,11 @@
 function Deposit (){
-
+    const ctx = React.useContext(UserContext);
+    const email =ctx.user;
     const { useState } = React;
     const [status, setStatus] = useState('');
     const [deposit, setDeposit] = useState('');
     const [balance, setBalance] = useState(''); 
-    const ctx = React.useContext(UserContext);
-    const email =ctx.user;
+   
         
     React.useEffect(()=>updateBalance(), []);
 
@@ -54,12 +54,14 @@ function Deposit (){
             console.log(data);
         })(); 
 
-        setStatus('Succesful deposit');
+        setStatus('Successful deposit');
         setTimeout(()=> setStatus(''), 1000);
         updateBalance();
        }
     
     return (
+        <>
+        <div style={{position: "fixed", top: "0px", right: "10%", color: "white" }}>{ctx.user}</div>
         <Card
             bgcolor="success"
             header="Deposit"
@@ -75,5 +77,6 @@ function Deposit (){
                 </>
                 }
         />
+        </>
     )
 }

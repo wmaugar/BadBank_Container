@@ -64,6 +64,8 @@ function Withdraw (){
     }
     
     return (
+        <>
+        <div style={{position: "fixed", top: "0px", right: "10%", color: "white" }}>{ctx.user}</div>
         <Card
             bgcolor="info"
             header="Withdraw"
@@ -79,5 +81,6 @@ function Withdraw (){
                 </>
                 }
         />
+        </>
     )
 }
