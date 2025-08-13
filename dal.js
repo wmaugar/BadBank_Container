@@ -1,18 +1,19 @@
 // dal stands for data abstraction layer, works between node server and database, to separete code and concerns
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
-//const url           = 'mongodb://mongo:27017'
+
+//const uri = "mongodb://localhost:27017";
+const uri = "mongodb://mongo: 27017";
 let db;
 
 //connect to mongo
 
-MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
   if (err) {
     console.log("failed to connect: " + err);
     return;
   }
   // CREATE a database, define a Name;
-  db = client.db("myproject");
+  db = client.db("mongo");
   console.log("Connected succesfully to db server!");
 });
 
